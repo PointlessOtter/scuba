@@ -1,86 +1,116 @@
 jQuery(document).ready(function($) {
 
-	'use strict';
+    'use strict';
 
-        $(window).load(function() { // makes sure the whole site is loaded
-            $(".seq-preloader").fadeOut(); // will first fade out the loading animation
-            $(".sequence").delay(500).fadeOut("slow"); // will fade out the white DIV that covers the website.
+
+        $(".Modern-Slider").slick({
+            autoplay:true,
+            speed:1000,
+            slidesToShow:1,
+            slidesToScroll:1,
+            pauseOnHover:false,
+            dots:true,
+            fade: true,
+            pauseOnDotsHover:true,
+            cssEase:'linear',
+           // fade:true,
+            draggable:false,
+            prevArrow:'<button class="PrevArrow"></button>',
+            nextArrow:'<button class="NextArrow"></button>', 
+          });
+
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+
+
+        $('.tabgroup > div').hide();
+            $('.tabgroup > div:first-of-type').show();
+            $('.tabs a').click(function(e){
+              e.preventDefault();
+                var $this = $(this),
+                tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+                others = $this.closest('li').siblings().children('a'),
+                target = $this.attr('href');
+            others.removeClass('active');
+            $this.addClass('active');
+            $(tabgroup).children('div').hide();
+            $(target).show();
+          
         })
-      
-        
-        $(function() {
-  
-        function showSlide(n) {
-            // n is relative position from current slide
-          
-            // unbind event listener to prevent retriggering
-            $body.unbind("mousewheel");
-          
-            // increment slide number by n and keep within boundaries
-            currSlide = Math.min(Math.max(0, currSlide + n), $slide.length-1);
-            
-            var displacment = window.innerWidth*currSlide;
-            // translate slides div across to appropriate slide
-            $slides.css('transform', 'translateX(-' + displacment + 'px)');
-            // delay before rebinding event to prevent retriggering
-            setTimeout(bind, 700);
-            
-            // change active class on link
-            $('nav a.active').removeClass('active');
-            $($('a')[currSlide]).addClass('active');
-            
-        }
-      
-        function bind() {
-             $body.bind('false', mouseEvent);
-          }
-      
-        function mouseEvent(e, delta) {
-            // On down scroll, show next slide otherwise show prev slide
-            showSlide(delta >= 0 ? -1 : 1);
-            e.preventDefault();
-        }
-        
-        $('nav a, .main-btn a').click(function(e) {
-            // When link clicked, find slide it points to
-            var newslide = parseInt($(this).attr('href')[1]);
-            // find how far it is from current slide
-            var diff = newslide - currSlide - 1;
-            showSlide(diff); // show that slide
-            e.preventDefault();
-        });
-      
-        $(window).resize(function(){
-          // Keep current slide to left of window on resize
-          var displacment = window.innerWidth*currSlide;
-          $slides.css('transform', 'translateX(-'+displacment+'px)');
-        });
-        
-        // cache
-        var $body = $('body');
-        var currSlide = 0;
-        var $slides = $('.slides');
-        var $slide = $('.slide');
-      
-        // give active class to first link
-        $($('nav a')[0]).addClass('active');
-        
-        // add event listener for mousescroll
-        $body.bind('false', mouseEvent);
-    })        
 
 
-        $('#form-submit .date').datepicker({
+
+        $(".box-video").click(function(){
+          $('iframe',this)[0].src += "&amp;autoplay=1";
+          $(this).addClass('open');
         });
 
-
-        $(window).on("scroll", function() {
-            if($(window).scrollTop() > 100) {
-                $(".header").addClass("active");
-            } else {
-                //remove the background property so it comes transparent again (defined in your css)
-               $(".header").removeClass("active");
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:3,
+                    nav:true,
+                    loop:false
+                }
             }
+        })
+
+
+
+        var contentSection = $('.content-section, .main-banner');
+        var navigation = $('nav');
+        
+        //when a nav link is clicked, smooth scroll to the section
+        navigation.on('click', 'a', function(event){
+            event.preventDefault(); //prevents previous event
+            smoothScroll($(this.hash));
+        });
+        
+        //update navigation on scroll...
+        $(window).on('scroll', function(){
+            updateNavigation();
+        })
+        //...and when the page starts
+        updateNavigation();
+        
+        /////FUNCTIONS
+        function updateNavigation(){
+            contentSection.each(function(){
+                var sectionName = $(this).attr('id');
+                var navigationMatch = $('nav a[href="#' + sectionName + '"]');
+                if( ($(this).offset().top - $(window).height()/2 < $(window).scrollTop()) &&
+                      ($(this).offset().top + $(this).height() - $(window).height()/2 > $(window).scrollTop()))
+                    {
+                        navigationMatch.addClass('active-section');
+                    }
+                else {
+                    navigationMatch.removeClass('active-section');
+                }
+            });
+        }
+        function smoothScroll(target){
+            $('body,html').animate({
+                scrollTop: target.offset().top
+            }, 800);
+        }
+
+
+        $('.button a[href*=#]').on('click', function(e) {
+          e.preventDefault();
+          $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top -0 }, 500, 'linear');
         });
 
 
