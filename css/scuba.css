@@ -975,11 +975,17 @@ min-height: 225px;
   font-weight: 600;
 }
 
-
+.contacts {
+              font-size:15px
+              }
 
 /* Responsive Style */
 
 @media (max-width: 992px) {
+
+   .contacts {
+    font-size: 13x;
+    }
 
     #featured .item .text-content h4 {
     font-size:15px
@@ -1016,6 +1022,9 @@ min-height: 225px;
 
 @media (max-width: 767px) {
 
+.contacts {
+    font-size: 10px;
+    }
   .responsive-nav {
     display: block;
     height: 60px;
@@ -1074,6 +1083,9 @@ min-height: 225px;
 
 @media (max-width: 690px) {
 
+.contacts {
+    font-size: 11px;
+    }
   .section-heading p {
     position: relative;
   }
