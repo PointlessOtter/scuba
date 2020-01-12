@@ -846,6 +846,7 @@ header {
   margin-right: 30px;
   max-width: 100%;
   overflow: hidden;
+  max-height:235px;
 }
 #blog .tabgroup ul li .text-content {
   display: inline;
@@ -1121,8 +1122,13 @@ min-height: 225px;
     font-size: 13px;
   }
 
+    #blog .tabgroup ul li{
+    text-align:center;
+    }
+
   #blog .tabgroup ul li img {
     float: none;
+    height:100%
     width: 100%;
     margin-bottom: 15px;
   }
