@@ -4,7 +4,7 @@ body {
 
 .gal-heading{
     border-bottom: 1px solid #000;
-    font-size:22px;
+    font-size:30px;
     color:#2194c1;
 }
 
@@ -897,9 +897,9 @@ min-height: 225px;
   padding-top: 7.5px;
   margin-top: 0px;
   margin-bottom: 5px;
-  font-size: 21px;
-  font-weight: 600;
-  color: #232323;
+  font-size: 23px;
+  font-weight: 900;
+  color: #2194c1;
   letter-spacing: 0.5px;
 }
 
