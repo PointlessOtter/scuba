@@ -3,9 +3,9 @@ body {
 }
 
 .gal-heading{
-font-size:22px;
-color:#131a48;
-padding-bottom:15px;
+    border-bottom: 1px solid #000;
+    font-size:22px;
+    color:#2194c1;
 }
 
 .social-icons-top {
@@ -50,6 +50,7 @@ padding-bottom:15px;
 
 .padding-carousel{
 padding-bottom:20px;
+padding-top:10px;
 }
 
 /* Create three equal columns that floats next to each other */
