@@ -591,6 +591,61 @@ header {
   color: #fff;
 }
 
+#jaunumi .owl-dots {
+  margin-top: 10px;
+}
+
+#jaunumi .owl-dots .owl-dot span  {
+  width: 15px;
+  height: 15px;
+  background-color: #cdcdcd!important;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+
+#jaunumi .owl-dots .active span {
+  background-color: #131a48!important;
+}
+
+#jaunumi .owl-dots button {
+  outline: none;
+}
+
+#jaunumi .owl-nav {
+  position: absolute;
+  display: none;
+  top: -110px;
+  right: 0;
+}
+
+#jaunumi .owl-nav button:focus {
+  outline: none;
+}
+
+#jaunumi .owl-nav .owl-prev span {
+  margin-right: 10px;
+}
+
+#jaunumi .owl-nav .owl-next span, #jaunumi .owl-nav .owl-prev span {
+  outline: none;
+  width: 50px;
+  height: 50px;
+  display: none;
+  text-align: center;
+  line-height: 42px;
+  background-color: #eee;
+  color: #232323;
+  font-size: 42px;
+  transition: all 0.5s;
+}
+
+#jaunumi .owl-nav span:hover {
+  background-color: #131a48;
+  color: #fff;
+}
+
+
 #featured .item {
   text-align: left;
   position: relative;
@@ -665,6 +720,7 @@ header {
 /* Projects Style */
 
 #projects {
+ background-color: #f4f4f4;
  padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 30px;
@@ -687,6 +743,30 @@ header {
   opacity: 0.5;
 }
 
+/* jaunumi Style */
+
+#jaunumi {
+ padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+#jaunumi .masonry {
+  position: relative;
+  width: 100%;
+}
+
+#jaunumi .masonry .item img {
+  transition: all 1s;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+#jaunumi .masonry .item img:hover {
+  opacity: 0.5;
+}
 
 
 /* Video Presentation Style */
@@ -922,7 +1002,9 @@ min-height: 225px;
 /* Contact Style */
 
 #contact {
+ background-color: #f4f4f4;
   padding-top: 0px;
+  border-bottom: 1px solid #eee;
 }
 
 #contact-content {
@@ -1149,6 +1231,18 @@ min-height: 225px;
     padding-left: 15px;
     padding-right: 15px;
   }
+
+   #jaunumi .owl-nav {
+      position: absolute;
+      display: none;
+      top: -220px;
+      right: 0;
+    }
+
+    #jaunumi {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
   #video {
     padding-left: 15px;
