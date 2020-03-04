@@ -1201,9 +1201,13 @@ min-height: 225px;
     color:#FFF;
     z-index:5;
   }
+}
 
-  
+@media (max-height: 690px) {
 
+.sidebar-navigation nav {
+    top: 65%;
+}
 }
 
 @media (max-width: 690px) {
