@@ -31,7 +31,7 @@ window.SCUBA_EVENTS = [
         dateStart: "2025-11-11",
         dateEnd: "2025-11-19",
         image: "img/egipte.png",
-        documentUrl: "Marsa_Alam_offer_SCUBALIFE_2025.pdf",
+        documentUrl: "assets/documents/Marsa_Alam_offer_SCUBALIFE_2025.pdf",
         active: true
     },
     {
@@ -39,7 +39,7 @@ window.SCUBA_EVENTS = [
         dateStart: "2025-06-26",
         dateEnd: "2025-07-03",
         image: "img/pasakums.png",
-        documentUrl: "Cyprus_offer_SCUBALIFE_2025.pdf",
+        documentUrl: "assets/documents/Cyprus_offer_SCUBALIFE_2025.pdf",
         active: true
     },
     // 2024
