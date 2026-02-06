@@ -78,6 +78,6 @@ window.SCUBA_EVENTS = [
         "dateEnd": "2020-07-04",
         "image": "img/KAL/jun/malta.png",
         "documentUrl": null,
-        "active": false
+        "active": true
     }
 ];
