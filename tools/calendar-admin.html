@@ -629,19 +629,57 @@ window.SCUBA_EVENTS = ${JSON.stringify(eventsData, null, 4)};
             }
         }
         
+        // Delete a file from GitHub
+        async function deleteGitHubFile(filePath, commitMessage) {
+            try {
+                // Get file SHA first
+                const file = await githubRequest(`/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}?ref=${BRANCH}`);
+                
+                await githubRequest(`/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`, {
+                    method: 'DELETE',
+                    body: JSON.stringify({
+                        message: commitMessage,
+                        sha: file.sha,
+                        branch: BRANCH
+                    })
+                });
+                return true;
+            } catch (error) {
+                console.warn(`Could not delete ${filePath}:`, error.message);
+                return false; // Don't fail if file doesn't exist or can't be deleted
+            }
+        }
+        
         // Delete event
         async function deleteEvent(index) {
-            if (!confirm(`Vai tiešām dzēst "${eventsData[index].title}"?\n\nŠo darbību nevar atcelt!`)) {
-                return;
-            }
+            const event = eventsData[index];
+            const deleteFiles = confirm(`Vai tiešām dzēst "${event.title}"?\n\nŠo darbību nevar atcelt!`);
+            if (!deleteFiles) return;
+            
+            const alsoDeleteFiles = confirm(`Vai dzēst arī saistītos failus?\n\n• Attēls: ${event.image}\n• Dokuments: ${event.documentUrl || 'nav'}\n\nSpied OK lai dzēstu failus, vai Cancel lai saglabātu failus.`);
             
             try {
-                const title = eventsData[index].title;
+                const title = event.title;
+                
+                if (alsoDeleteFiles) {
+                    // Delete image if it's in assets/images/events (uploaded via this tool)
+                    if (event.image && event.image.startsWith('assets/images/events/')) {
+                        showStatus('Dzēš attēlu...', 'loading');
+                        await deleteGitHubFile(event.image, `Delete image for: ${title}`);
+                    }
+                    
+                    // Delete document if it exists and is in assets/documents
+                    if (event.documentUrl && event.documentUrl.startsWith('assets/documents/')) {
+                        showStatus('Dzēš dokumentu...', 'loading');
+                        await deleteGitHubFile(event.documentUrl, `Delete document for: ${title}`);
+                    }
+                }
+                
                 eventsData.splice(index, 1);
                 showStatus('Dzēš pasākumu...', 'loading');
                 await saveEvents(`Delete event: ${title}`);
                 renderEvents();
-                showStatus('✅ Pasākums dzēsts!', 'success');
+                showStatus('✅ Pasākums dzēsts!' + (alsoDeleteFiles ? ' Faili arī dzēsti.' : ''), 'success');
             } catch (error) {
                 showStatus('Kļūda: ' + error.message, 'error');
                 loadEvents(); // Reload to restore state
