@@ -17,6 +17,14 @@
 
 window.SCUBA_EVENTS = [
     {
+        "title": "Test :)",
+        "dateStart": "2028-02-09",
+        "dateEnd": "2028-06-06",
+        "image": "assets/images/events/1770394014746_p1.jpeg",
+        "documentUrl": "assets/documents/1770394016143_dfm.pdf",
+        "active": true
+    },
+    {
         "title": "Agia Pelagia, Krēta",
         "dateStart": "2026-07-03",
         "dateEnd": "2026-07-10",
