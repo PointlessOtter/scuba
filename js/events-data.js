@@ -17,6 +17,14 @@
 
 window.SCUBA_EVENTS = [
     {
+        "title": "Niršana Albānijā",
+        "dateStart": "2026-10-09",
+        "dateEnd": "2026-10-16",
+        "image": "assets/images/events/1775382803738_1000132754.png",
+        "documentUrl": "assets/documents/1775382805515_Albania_offer_SCUBALIFE_2026.pdf",
+        "active": true
+    },
+    {
         "title": "Agia Pelagia, Krēta",
         "dateStart": "2026-07-03",
         "dateEnd": "2026-07-10",
