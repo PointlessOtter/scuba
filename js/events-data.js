@@ -79,13 +79,5 @@ window.SCUBA_EVENTS = [
         "image": "img/pasakums_jun_24.jpeg",
         "documentUrl": null,
         "active": true
-    },
-    {
-        "title": "Dahaba, Ēģipte",
-        "dateStart": "2020-11-06",
-        "dateEnd": "2020-11-15",
-        "image": "img/jaun_3.jpg",
-        "documentUrl": null,
-        "active": true
     }
 ];
