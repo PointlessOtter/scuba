@@ -87,13 +87,5 @@ window.SCUBA_EVENTS = [
         "image": "img/jaun_3.jpg",
         "documentUrl": null,
         "active": true
-    },
-    {
-        "title": "Niršana Maltā",
-        "dateStart": "2020-06-26",
-        "dateEnd": "2020-07-04",
-        "image": "img/KAL/jun/malta.png",
-        "documentUrl": null,
-        "active": true
     }
 ];
