@@ -17,6 +17,14 @@
 
 window.SCUBA_EVENTS = [
     {
+        "title": "Atklāj Melnkalnes zemūdens pasauli",
+        "dateStart": "2027-06-27",
+        "dateEnd": "2027-07-07",
+        "image": "assets/images/events/1792505344454_HN.jpg",
+        "documentUrl": "assets/documents/1792505348736_Montenegro_offer_SCUBALIFE_2027.pdf",
+        "active": true
+    },
+    {
         "title": "Niršana Albānijā",
         "dateStart": "2026-10-09",
         "dateEnd": "2026-10-16",
